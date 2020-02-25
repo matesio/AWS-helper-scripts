@@ -1,0 +1,2 @@
+#!/bin/bash
+aws ec2 describe-images --owners "self" --region us-west-1 --profile ayesha_emumba   --color off | jq  -r '.Images[] | [ .Name, (.ImageId | tostring), (.CreationDate | tostring) , .VirtualizationType] | join (", ")'  > data.csv
